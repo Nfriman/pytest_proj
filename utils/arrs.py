@@ -11,7 +11,13 @@ def get(array, index, default=None):
     :param default: значение по-умолчанию.
     :return: значение по индексу или значение по-умолчанию.
     """
-    if index < 0:
+    if type(array) != list:
+        return 'Тип данных не является списком'
+
+    if type(index) != int:
+        return 'Индекс указон не корректно'
+
+    if index > (len(array)-1):
         return default
 
     return array[index]
@@ -28,6 +34,9 @@ def my_slice(coll, start=0, end=None):
     :return: массив элементов
     """
     length = len(coll)
+
+    if type(coll) != list:
+        return 'Тип данных не является списком'
 
     if length == 0:
         return []
